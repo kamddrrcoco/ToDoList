@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/display"
+            android:title="@string/display">
+            <menu>
+                <item
+                    android:id="@+id/incomplete"
+                    android:title="@string/incomplete" />
+                <item
+                    android:id="@+id/Completed"
+                    android:title="@string/Completed" />
+            </menu>
+        </item>
+    </group>
+    <group>
+        <item
+            android:id="@+id/layout"
+            android:title="@string/layout">
+            <menu>
+                <item
+                    android:id="@+id/grid"
+                    android:icon="@drawable/icon_grid"
+                    android:title="@string/grid" />
+                <item
+                    android:id="@+id/tabulation"
+                    android:icon="@drawable/icon_table"
+                    android:title="@string/tabulation" />
+            </menu>
+        </item>
+    </group>
+    <item
+        android:id="@+id/delete_all"
+        android:icon="@drawable/icon_delete"
+        android:iconTint="@color/black"
+        android:title="@string/delete_all" />
+</menu>
