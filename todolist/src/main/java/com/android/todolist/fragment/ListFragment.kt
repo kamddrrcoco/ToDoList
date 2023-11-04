@@ -8,26 +8,28 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.android.todolist.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class ListFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
-        view.findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {    //点击添加按钮，跳转到addFragment页面
-            findNavController().navigate(R.id.addFragment)
-        }
+        view.findViewById<FloatingActionButton>(R.id.fab)
+            .setOnClickListener {    //点击添加按钮，跳转到addFragment页面
+                findNavController().navigate(R.id.addFragment)
+            }
+
         setHasOptionsMenu(true)
         return view
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {  //设置菜单
-        inflater.inflate(R.menu.menu,menu)
+        inflater.inflate(R.menu.menu, menu)
     }
 }

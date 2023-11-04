@@ -13,19 +13,17 @@ abstract class ToDoDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: ToDoDatabase? = null
-        fun getDatabase(context: Context): ToDoDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) return tempInstance
-            synchronized(this) {
-                val inference = Room.databaseBuilder(
-                    context.applicationContext,
-                    ToDoDatabase::class.java,
-                    "todo_database"
-                ).build()
-                INSTANCE = inference
-                return inference
-            }
+        fun create(context: Context): ToDoDatabase = INSTANCE ?: synchronized(this) {
+            INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
         }
-    }
 
+        private fun buildDatabase(context: Context) =
+            Room.databaseBuilder(
+                context.applicationContext,
+                ToDoDatabase::class.java,
+                "todo_database.db"
+            ).allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
+    }
 }
