@@ -14,5 +14,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KotlinStudy"
-include(":app")
 include(":todolist")

@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">We Chat</string>
-    <string name="chat">chat</string>
-    <string name="address_book">address book</string>
-    <string name="find">find</string>
-    <string name="me">me</string>
-</resources>
