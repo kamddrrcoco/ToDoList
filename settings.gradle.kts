@@ -16,3 +16,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinStudy"
 include(":todolist")
+include(":weixin")
+//include(":passwordbook")
+//include(":password")
+include(":mytest")

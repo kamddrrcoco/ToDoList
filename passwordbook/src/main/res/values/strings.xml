@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Password Book</string>
+    <string name="number">输入账号：</string>
+    <string name="password">请输入密码：</string>
+    <string name="notes">备注：</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
