@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinStudy" >
         <activity
-            android:name=".ui.UpdateActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.EditActivity"
             android:exported="false" />
         <activity

@@ -2,25 +2,61 @@ package com.android.weixin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import androidx.fragment.app.Fragment
+import android.view.Menu
+import android.view.MenuItem
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.android.weixin.data.ChatEntity
 import com.android.weixin.fragment.AddressBookFragment
 import com.android.weixin.fragment.ChatFragment
-import com.android.weixin.fragment.FindFragment
 import com.android.weixin.fragment.MeFragment
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.btn_chat).setOnClickListener { onClick(ChatFragment()) }//点击按钮，跳转到指定的fragment
-        findViewById<Button>(R.id.btn_address_book).setOnClickListener { onClick(AddressBookFragment()) }
-        findViewById<Button>(R.id.btn_find).setOnClickListener { onClick(FindFragment()) }
-        findViewById<Button>(R.id.btn_me).setOnClickListener { onClick(MeFragment()) }
+        val tabLayout = findViewById<TabLayout>(R.id.tl_tab)
+        val viewPager = findViewById<ViewPager2>(R.id.vp_content)
+
+        viewPager.adapter = object : FragmentStateAdapter(this) {
+            override fun getItemCount() = 3    //告诉ViewPager有几个页面
+            override fun createFragment(position: Int) =     //给页面指定位置
+                when (position) {
+                    0 -> ChatFragment()
+                    1 -> AddressBookFragment()
+                    else -> MeFragment()
+                }
+        }
+        TabLayoutMediator(
+            tabLayout,
+            viewPager
+        ) { tab, position ->      //把tabLayout和viewpager放进去，再写一个标题
+            when (position) {
+                0 -> tab.text = "聊天"
+                1 -> tab.text = "通讯录"
+                else -> tab.text = "我"
+            }
+        }.attach()
     }
 
-    private fun onClick(fragment: Fragment?) {
-        supportFragmentManager.beginTransaction().replace(R.id.ll_content, fragment!!).commit()
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val s=(1..10000).random()
+        val name="$s"
+        when (item.itemId) {
+            R.id.menu_add -> {
+                MyApplication.chatDao?.insertData(ChatEntity(0, name))
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

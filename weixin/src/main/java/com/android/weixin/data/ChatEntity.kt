@@ -7,8 +7,5 @@ import androidx.room.PrimaryKey
 @Entity (tableName = "chat_data")
  class ChatEntity(
   @PrimaryKey(autoGenerate = true)  val id:Int,
-    val icon: Int,
-    val name: String,
-    val content: String?
-
+    val name: String
 )

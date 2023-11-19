@@ -2,6 +2,10 @@ package com.android.todolist.ui
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.android.todolist.MyApplication
@@ -16,6 +20,7 @@ class EditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
+
         etTitle = findViewById(R.id.ed_title)
         etContent = findViewById(R.id.ed_content)
         val id = intent.getIntExtra("id", -1)
@@ -25,7 +30,7 @@ class EditActivity : AppCompatActivity() {
             etTitle?.setText(title)
             etContent?.setText(content)
         }
-        findViewById<FloatingActionButton>(R.id.btn_complete).setOnClickListener {
+        findViewById<Button>(R.id.btn_complete).setOnClickListener {
             val strTitle = etTitle?.text.toString()
             val strContent = etContent?.text.toString()
             if (!TextUtils.isEmpty(strTitle)) {

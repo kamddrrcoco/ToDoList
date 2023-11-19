@@ -7,114 +7,36 @@
     tools:context=".fragment.MeFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/rl_modify"
-            android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:background="@drawable/frame">
-
-            <ImageView
-                android:id="@+id/iv_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/box" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/iv_box"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="15dp"
-                    android:text="@string/name"
-                    android:textSize="25sp"
-                    tools:ignore="RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="15dp"
-                    android:text="@string/number"
-                    android:textSize="15sp"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/baseline_arrow" />
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_give_service_to"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="75dp"
             android:background="@drawable/frame2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_baseline_autorenew"
+                android:paddingStart="15dp"
+                android:text="@string/icon"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
 
             <ImageView
                 android:id="@+id/iv_baseline_autorenew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/baseline_autorenew" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/iv_baseline_autorenew"
-                android:paddingStart="15dp"
-                android:text="@string/give_service_to"
-                android:textSize="20sp"
-                tools:ignore="RtlSymmetry" />
+                android:layout_toStartOf="@+id/iv_arrow"
+                android:src="@drawable/box" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/baseline_arrow" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/rl_circle_of_friends"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@drawable/frame2">
-
-            <ImageView
-                android:id="@+id/photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/photo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/photo"
-                android:paddingStart="15dp"
-                android:text="@string/circle_of_friends"
-                android:textSize="20sp"
-                tools:ignore="RtlSymmetry" />
-
-            <ImageView
+                android:id="@+id/iv_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -123,30 +45,32 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_settings"
+            android:id="@+id/rl_settings_name"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="75dp"
             android:background="@drawable/frame2">
-
-            <ImageView
-                android:id="@+id/iv_settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/settings" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/iv_settings"
+                android:layout_toEndOf="@+id/name"
                 android:paddingStart="15dp"
-                android:text="@string/settings"
+                android:text="@string/name"
                 android:textSize="20sp"
                 tools:ignore="RtlSymmetry" />
 
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/iv_arrow2"
+                android:text="@string/name" />
+
             <ImageView
+                android:id="@+id/iv_arrow2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -154,5 +78,4 @@
                 android:src="@drawable/baseline_arrow" />
         </RelativeLayout>
     </LinearLayout>
-
 </FrameLayout>

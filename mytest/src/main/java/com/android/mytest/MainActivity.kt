@@ -1,9 +1,11 @@
 package com.android.mytest
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -13,11 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btn_register).setOnClickListener {
-            /*val intent = Intent(this@MainActivity, AddActivity::class.java) //跳转到指定的activity
-            val send = findViewById<EditText>(R.id.ed_text1).text.toString() //启用输入框
-            //启动跳转并传递输入框中的数据,(根据参数1来接收数据，参数2为要传递的数据)
-            intent.putExtra("id", send)
-            startActivity(intent)*/
             startActivityForResult(Intent(this@MainActivity, AddActivity::class.java), 1)
 
         }
@@ -25,6 +22,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, Activity::class.java))
         }
 
+        findViewById<Button>(R.id.btn_delete).setOnClickListener {
+            val builder: AlertDialog.Builder? = it?.let {
+                AlertDialog.Builder(this)
+            }
+            builder?.setTitle("删除数据")
+                ?.setMessage("确认要删除吗？")
+            builder?.apply {
+                setPositiveButton("确认") { _, _ ->
+                    Toast.makeText(context, "删除", Toast.LENGTH_LONG).show()
+                }
+                setNegativeButton("取消") { _, _ ->
+                    Toast.makeText(context, "取消", Toast.LENGTH_LONG).show()
+                }
+            }
+            builder?.show()
+        }
     }
 
 

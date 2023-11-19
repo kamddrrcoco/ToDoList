@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 class MyListAdapter(layoutRes: Int = R.layout.item_view) :
     BaseQuickAdapter<ToDoData, BaseViewHolder>(layoutRes) {
     override fun convert(holder: BaseViewHolder, item: ToDoData) {
-        holder.getView<TextView>(R.id.tv_title).text = "${item.id}\n${item.title}"
+        holder.getView<TextView>(R.id.tv_title).text = item.title
         holder.getView<TextView>(R.id.tv_content).text = item.content
         holder.getView<Button>(R.id.delete).setOnClickListener {
             onCheckBoxChangeListener?.onchange(item)
