@@ -1,11 +1,11 @@
 package com.android.mytest
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -22,21 +22,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, Activity::class.java))
         }
 
-        findViewById<Button>(R.id.btn_delete).setOnClickListener {
-            val builder: AlertDialog.Builder? = it?.let {
-                AlertDialog.Builder(this)
-            }
-            builder?.setTitle("删除数据")
-                ?.setMessage("确认要删除吗？")
-            builder?.apply {
-                setPositiveButton("确认") { _, _ ->
-                    Toast.makeText(context, "删除", Toast.LENGTH_LONG).show()
-                }
-                setNegativeButton("取消") { _, _ ->
-                    Toast.makeText(context, "取消", Toast.LENGTH_LONG).show()
-                }
-            }
-            builder?.show()
+        findViewById<Button>(R.id.btn_icon).setOnClickListener {
+            startActivityForResult(
+                Intent(Intent.ACTION_PICK).setType("image/*"), 100
+            )
         }
     }
 
@@ -48,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             val password = data?.getStringExtra("password")
             findViewById<EditText>(R.id.ed_text1).setText(name)
             findViewById<EditText>(R.id.ed_password1)?.setText(password)
+        }
+        if (100 == requestCode) {
+            val uri = data!!.data
+            findViewById<ImageView>(R.id.iv_icon).setImageURI(uri)
         }
     }
 }

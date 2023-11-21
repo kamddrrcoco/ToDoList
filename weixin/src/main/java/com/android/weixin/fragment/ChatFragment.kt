@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.android.weixin.R
 import com.android.weixin.data.ChatEntity
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ChatFragment : Fragment() {
 
@@ -16,10 +18,7 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_chat, container, false)
-     /*   val recyclerView = view.findViewById<RecyclerView>(R.id.rv_chat_view)
-        val layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = layoutManager */
+
         return view
     }
 }

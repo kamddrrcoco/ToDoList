@@ -16,5 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinStudy"
 include(":todolist")
-include(":weixin")
 include(":mytest")

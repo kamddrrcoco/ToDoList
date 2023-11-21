@@ -1,5 +1,6 @@
 package com.android.todolist.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
@@ -8,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.android.todolist.MainActivity
 import com.android.todolist.MyApplication
 import com.android.todolist.R
 import com.android.todolist.data.ToDoData
@@ -45,6 +47,9 @@ class EditActivity : AppCompatActivity() {
                 etTitle?.requestFocus()
                 etTitle?.error = "请输入标题"
             }
+        }
+        findViewById<Button>(R.id.btn_return).setOnClickListener {
+            finish()
         }
     }
 }
