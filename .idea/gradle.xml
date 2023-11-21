@@ -13,7 +13,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/mytest" />
             <option value="$PROJECT_DIR$/todolist" />
-            <option value="$PROJECT_DIR$/weixin" />
           </set>
         </option>
       </GradleProjectSettings>
