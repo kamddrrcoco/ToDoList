@@ -21,12 +21,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_set).setOnClickListener {
             startActivity(Intent(this@MainActivity, Activity::class.java))
         }
-
-        findViewById<Button>(R.id.btn_icon).setOnClickListener {
-            startActivityForResult(
-                Intent(Intent.ACTION_PICK).setType("image/*"), 100
-            )
-        }
     }
 
 
@@ -37,10 +31,6 @@ class MainActivity : AppCompatActivity() {
             val password = data?.getStringExtra("password")
             findViewById<EditText>(R.id.ed_text1).setText(name)
             findViewById<EditText>(R.id.ed_password1)?.setText(password)
-        }
-        if (100 == requestCode) {
-            val uri = data!!.data
-            findViewById<ImageView>(R.id.iv_icon).setImageURI(uri)
         }
     }
 }

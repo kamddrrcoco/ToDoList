@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">记事本</string>
+    <string name="app_name">ToDoList</string>
     <string name="title">标题</string>
     <string name="content">内容</string>
 </resources>

@@ -27,8 +27,8 @@ class Activity : AppCompatActivity() {
         }
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->      //把tabLayout和viewpager放进去，再写一个标题
             when (position) {
-                0 -> tab.text = "第一个页面"
-                else -> tab.text = "第二个页面"
+                0 -> tab.text = "首页"
+                else -> tab.text = "我的信息"
             }
         }.attach()
     }

@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/grey">
+
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登录账号"/>
+        android:text="登录账号" />
 
     <EditText
         android:id="@+id/ed_text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="账号"/>
+        android:layout_below="@+id/tv_text"
+        android:hint="账号" />
 
     <EditText
         android:id="@+id/ed_password1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="密码"/>
+        android:layout_below="@+id/ed_text1"
+        android:hint="密码" />
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_set"
+        android:layout_centerHorizontal="true"
         android:text="去注册" />
+
     <Button
         android:id="@+id/btn_set"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="页面跳转" />
-    <Button
-        android:id="@+id/btn_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="图片" />
-    <ImageView
-        android:id="@+id/iv_icon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ed_password1"
+        android:layout_centerHorizontal="true"
+        android:text="登录" />
+</RelativeLayout>
